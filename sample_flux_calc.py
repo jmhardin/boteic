@@ -130,19 +130,19 @@ rng = np.random.default_rng()
 
 spread_e = []
 
-#You will need to simulate much higher energies if you want correct bins
+#Likely you need slightly finer binning and bins outside the range to make this work exactly
 #but this is an idea
 #The mean "reco" energy is well below the true energy for the ic86 sample
-for i in range(10):
-    a = 3.14e7*integrate_v_weightfunc(test_func,1,0,ebins[i],ebins[i+1],-1.,1.0)
-    b = 3.14e7*integrate_v_weightfunc(test_func_nubar,1,1,ebins[i],ebins[i+1],-1.,1.0)
+#for i in range(10):
+#    a = 3.14e7*integrate_v_weightfunc(test_func,1,0,ebins[i],ebins[i+1],-1.,1.0)
+#    b = 3.14e7*integrate_v_weightfunc(test_func_nubar,1,1,ebins[i],ebins[i+1],-1.,1.0)
+#
+#    for j in range(int(a+b)):
+#        e_val = rng.uniform(ebins[i],ebins[i+1])
+#        se_val = rng.normal(e_val + test_de(e_val),test_stddev(e_val))
+#        spread_e.append(se_val)
 
-    for j in range(int(a+b)):
-        e_val = rng.uniform(ebins[i],ebins[i+1])
-        se_val = rng.normal(e_val + test_de(e_val),test_stddev(e_val))
-        spread_e.append(se_val)
 
+#histo, earr = np.histogram(spread_e,ebins)
 
-histo, earr = np.histogram(spread_e,ebins)
-
-print(histo)
+#print(histo)
